@@ -102,4 +102,4 @@ Joan Ouma- PLP Academy Student
 
 ## 📅 Submission
 - Course: MongoDB Data Layer- Week 1
-- Assignment Link:https://github.com/PLP-MERN-Stack-Development/plp-mern-stack-development-classroom-mongodb-data-layer-fundamentals-and-advanced-techniques-MERN-St
+- Assignment Link: https://github.com/PLP-MERN-Stack-Development/mongodb-data-layer-fundamentals-and-advanced-techniques-joanjullie59
