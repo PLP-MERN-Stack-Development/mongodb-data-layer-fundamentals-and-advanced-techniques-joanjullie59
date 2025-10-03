@@ -1,59 +1,105 @@
-# MongoDB Fundamentals - Week 1
+# MongoDB Week 1 Assignment - PLP Academy
 
-## Setup Instructions
+## 📚 Overview
+This repository contains the Week 1 assignment for the PLP Academy Data Layer course, focusing on MongoDB fundamentals including CRUD operations, aggregation pipelines, and indexing.
 
-Before you begin this assignment, please make sure you have the following installed:
+## 📂 Files
+- `insert_books.js` - Script to populate the database with 13 sample books
+- `queries.js` - All MongoDB queries for Tasks 2-5
+- `README.md` - This file
 
-1. **MongoDB Community Edition** - [Installation Guide](https://www.mongodb.com/docs/manual/administration/install-community/)
-2. **MongoDB Shell (mongosh)** - This is included with MongoDB Community Edition
-3. **Node.js** - [Download here](https://nodejs.org/)
+## 🚀 Quick Start
 
-### Node.js Package Setup
+### 1. Setup MongoDB
+Install MongoDB locally or create a free [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account.
 
-Once you have Node.js installed, run the following commands in your assignment directory:
-
+### 2. Run the Scripts
 ```bash
-# Initialize a package.json file
-npm init -y
+# Start MongoDB Shell
+mongosh
 
-# Install the MongoDB Node.js driver
-npm install mongodb
+# Load and execute the insert script
+load('insert_books.js')
+
+# Load and execute all queries
+load('queries.js')
 ```
 
-## Assignment Overview
+## 📋 Assignment Tasks
 
-This week focuses on MongoDB fundamentals including:
-- Creating and connecting to MongoDB databases
-- CRUD operations (Create, Read, Update, Delete)
-- MongoDB queries and filters
-- Aggregation pipelines
-- Indexing for performance
+### Task 1: MongoDB Setup ✅
+- Created database: `plp_bookstore`
+- Created collection: `books`
 
-## Submission
+### Task 2: CRUD Operations ✅
+- Insert 13 books with required fields
+- Find books by genre, year, and author
+- Update book prices
+- Delete books by title
 
-Complete all the exercises in this assignment and push your code to GitHub using the provided GitHub Classroom link.
+### Task 3: Advanced Queries ✅
+- Complex filtering (in_stock AND published_year)
+- Projection (return specific fields)
+- Sorting (ascending/descending)
+- Pagination with limit and skip
 
-## Getting Started
+### Task 4: Aggregation Pipeline ✅
+- Calculate average price by genre
+- Find author with most books
+- Group books by publication decade
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+### Task 5: Indexing ✅
+- Single-field index on `title`
+- Compound index on `author` and `published_year`
+- Performance analysis using `explain()`
 
-## Files Included
+## 📖 Database Schema
+```javascript
+{
+  title: String,
+  author: String,
+  genre: String,
+  published_year: Number,
+  price: Number,
+  in_stock: Boolean,
+  pages: Number,
+  publisher: String
+}
+```
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+## 🔍 Sample Queries
 
-## Requirements
+**Find books by genre:**
+```javascript
+db.books.find({ genre: "Fiction" })
+```
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+**Average price by genre:**
+```javascript
+db.books.aggregate([
+  { $group: { _id: "$genre", avgPrice: { $avg: "$price" } } }
+])
+```
 
-## Resources
+**Create index:**
+```javascript
+db.books.createIndex({ title: 1 })
+```
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+## 📸 Screenshots
+Screenshots are located in the `screenshots/` folder showing:
+- Database and collection in MongoDB Compass
+- Sample documents
+- Index configuration
+
+## 🛠️ Technologies
+- MongoDB 6.0+
+- MongoDB Shell (mongosh)
+- MongoDB Compass (optional)
+
+## 👨‍💻 Author
+Joan Ouma- PLP Academy Student
+
+## 📅 Submission
+- Course: MongoDB Data Layer- Week 1
+- Assignment Link:*
